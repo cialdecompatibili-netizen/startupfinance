@@ -7,21 +7,27 @@ ref: servizi
 lang: en
 locale: en
 tr: tradotto
-tr_hash: u3h8wh
+tr_hash: nxq3se
 permalink: /en/services/
 ---
 
-One sentence introducing the services. State prices and conditions only if they are real.
+The topics we write about: guides, analysis and stories, in plain language.
 
-## First service
-Description of the first service: what it includes and who it is for.
+## Startups
+From idea to first customer: validation, offer and first sales.
 
-## Second service
-Description of the second service.
+## Personal and business finance
+Income, costs, margins, budgeting and saving.
 
-## How an engagement works
-1. **First step**: description.
-2. **Second step**: description.
-3. **Third step**: description.
+## Crypto
+What it is, how it works and the risks to know, with no promise of profit.
 
-[Contact us]({{ '/en/contact/' | relative_url }}){: .btn .btn--primary}
+## Founder stories
+How they started, the mistakes made and what they learned.
+
+## How we write
+1. **We pick a topic**: we start from questions people really ask.
+2. **We explain it simply**: everyday words and no needless jargon.
+3. **We keep it updated**: if something changes, we fix the content.
+
+[Contact us]({{ '/contatti/' | relative_url }}){: .btn .btn--primary}
