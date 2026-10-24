@@ -4,7 +4,7 @@ title: "Servizi"
 permalink: /servizi/
 ref: servizi
 author_profile: false
-seo_description: "Temi del sito: startup, finanza e crypto."
+seo_description: "Temi del sito: startup e finanza."
 ---
 
 I temi su cui scriviamo: guide, analisi e storie, in linguaggio semplice.
@@ -14,9 +14,6 @@ Dall'idea al primo cliente: validazione, offerta e prime vendite.
 
 ## Finanza personale e d'impresa
 Entrate, costi, margini, budget e risparmio.
-
-## Crypto
-Cosa sono, come funzionano e quali rischi conoscere, senza promesse di guadagno.
 
 ## Storie di imprenditori
 Come sono partiti, gli errori fatti e cosa hanno imparato.

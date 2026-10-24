@@ -1,13 +1,13 @@
 ---
 layout: single
 title: "Services"
-description: "Our services."
+description: "Site topics: startups and finance."
 author_profile: false
 ref: servizi
 lang: en
 locale: en
 tr: tradotto
-tr_hash: nxq3se
+tr_hash: gnirn1
 permalink: /en/services/
 ---
 
@@ -18,9 +18,6 @@ From idea to first customer: validation, offer and first sales.
 
 ## Personal and business finance
 Income, costs, margins, budgeting and saving.
-
-## Crypto
-What it is, how it works and the risks to know, with no promise of profit.
 
 ## Founder stories
 How they started, the mistakes made and what they learned.
