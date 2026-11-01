@@ -1,0 +1,108 @@
+{%- comment -%}
+  modulo-hub.html - modulo per le pagine Investi e Lavora con noi.
+  Parametri: tipo = "investi" | "lavora" ; lang = "it" | "en".
+  Invia al worker site.contact_endpoint (lo stesso del modulo Contatti: antispam ALTCHA + honeypot).
+  Il worker accetta i campi standard (nome, email, messaggio): i dati extra (tipo di richiesta, startup, profilo, link)
+  vengono scritti DENTRO "messaggio" con un'etichetta davanti, cosi' nella mail si capisce subito di cosa si tratta.
+  Le opzioni "startup" arrivano da _data/startup.json. Si preseleziona con ?startup=ID e ?ruolo=idea nell'URL.
+{%- endcomment -%}
+{%- assign en = false -%}{%- if include.lang == "en" -%}{%- assign en = true -%}{%- endif -%}
+{%- assign lavora = false -%}{%- if include.tipo == "lavora" -%}{%- assign lavora = true -%}{%- endif -%}
+{%- if site.contact_endpoint and site.contact_endpoint != "" -%}
+<div class="hf-wrap">
+<form id="hf-form" class="hf-form" novalidate>
+  <div class="hf-c"><label for="hf-nome">{% if en %}Your name{% else %}Come ti chiami?{% endif %}</label><input type="text" id="hf-nome" name="nome" maxlength="100" required autocomplete="name"></div>
+  <div class="hf-c"><label for="hf-email">{% if en %}Your email{% else %}La tua email{% endif %}</label><input type="email" id="hf-email" name="email" maxlength="150" required autocomplete="email"></div>
+  {%- if lavora %}
+  <div class="hf-c"><label for="hf-ruolo">{% if en %}What would you like to do?{% else %}Cosa vuoi fare?{% endif %}</label>
+    <select id="hf-ruolo" name="ruolo">
+      <option value="entra">{% if en %}Join a startup's team{% else %}Entrare nel team di una startup{% endif %}</option>
+      <option value="idea">{% if en %}Pitch my own idea{% else %}Proporre la mia idea{% endif %}</option>
+      <option value="blog">{% if en %}Write for the blog{% else %}Scrivere sul blog{% endif %}</option>
+      <option value="altro">{% if en %}Something else{% else %}Altro{% endif %}</option>
+    </select></div>
+  {%- else %}
+  <div class="hf-c"><label for="hf-profilo">{% if en %}Who are you?{% else %}Chi sei?{% endif %}</label>
+    <select id="hf-profilo" name="profilo">
+      <option value="privato">{% if en %}Private individual{% else %}Privato{% endif %}</option>
+      <option value="angel">{% if en %}Business angel{% else %}Business angel{% endif %}</option>
+      <option value="fondo">{% if en %}Fund or company{% else %}Fondo o società{% endif %}</option>
+      <option value="altro">{% if en %}Other{% else %}Altro{% endif %}</option>
+    </select></div>
+  {%- endif %}
+  <div class="hf-c"><label for="hf-startup">{% if lavora %}{% if en %}Startup you are interested in{% else %}Startup che ti interessa{% endif %}{% else %}{% if en %}Startup you would like to know more about{% else %}Startup su cui vuoi saperne di più{% endif %}{% endif %}</label>
+    <select id="hf-startup" name="startup">
+      <option value="">{% if en %}Not decided yet / in general{% else %}Non ancora deciso / in generale{% endif %}</option>
+      {%- for s in site.data.startup %}<option value="{{ s.id }}">{% if en and s.nome_en %}{{ s.nome_en }}{% else %}{{ s.nome }}{% endif %}</option>{% endfor %}
+    </select></div>
+  {%- if lavora %}
+  <div class="hf-c"><label for="hf-link">{% if en %}LinkedIn or portfolio (optional){% else %}LinkedIn o portfolio (facoltativo){% endif %}</label><input type="text" id="hf-link" name="link" maxlength="200"></div>
+  {%- endif %}
+  <div class="hf-c"><label for="hf-msg">{% if lavora %}{% if en %}Tell us about you or your idea{% else %}Raccontaci di te o della tua idea{% endif %}{% else %}{% if en %}What would you like to know?{% else %}Cosa vuoi sapere?{% endif %}{% endif %}</label>
+    <textarea id="hf-msg" name="messaggio" rows="5" maxlength="2500" required></textarea></div>
+  <div style="position:absolute;left:-9999px;height:0;overflow:hidden" aria-hidden="true"><label for="hf-web">x</label><input type="text" id="hf-web" name="website" tabindex="-1" autocomplete="off"></div>
+  <button type="submit" class="hf-btn" id="hf-btn">{% if lavora %}{% if en %}Send my application{% else %}Invia la candidatura{% endif %}{% else %}{% if en %}Send request{% else %}Invia la richiesta{% endif %}{% endif %}</button>
+  <p class="hf-nota">{% if en %}We reply by email. Your data is used only to answer you.{% else %}Ti rispondiamo via email. I tuoi dati servono solo per risponderti.{% endif %}</p>
+  <p id="hf-esito" role="status" aria-live="polite"></p>
+</form>
+</div>
+<script>
+(function () {
+  var form = document.getElementById('hf-form'); if (!form) return;
+  var esito = document.getElementById('hf-esito'), btn = document.getElementById('hf-btn');
+  var ENDPOINT = {{ site.contact_endpoint | jsonify }};
+  var EN = {% if en %}true{% else %}false{% endif %}, LAV = {% if lavora %}true{% else %}false{% endif %};
+  var T = EN ? {ok: "Received, thank you! We will reply by email soon.", miss: "Please fill in name, email and message.", ver: "Verification failed. Try again.", ko: "Sending failed. Try again shortly.", net: "Network error. Try again.", run: "Sending..."}
+             : {ok: "Ricevuto, grazie! Ti rispondiamo presto via email.", miss: "Compila nome, email e messaggio.", ver: "Verifica non riuscita. Riprova.", ko: "Invio non riuscito. Riprova tra poco.", net: "Errore di rete. Riprova.", run: "Invio in corso..."};
+  var t0 = Date.now(), tm = null;
+  function mostra(m, ok, fisso) { esito.textContent = m; esito.className = 'hf-on' + (ok ? '' : ' hf-err'); clearTimeout(tm); if (!fisso) tm = setTimeout(function () { esito.className = ''; }, 4000); }
+  /* preselezione da URL: ?startup=ID  ?ruolo=idea */
+  var q = new URLSearchParams(location.search);
+  if (q.get('startup') && form.startup) form.startup.value = q.get('startup');
+  if (q.get('ruolo') && form.ruolo) form.ruolo.value = q.get('ruolo');
+  /* ALTCHA come nella pagina Contatti */
+  var pre = null, preT = 0;
+  function hex(b) { return Array.prototype.map.call(new Uint8Array(b), function (x) { return ('0' + x.toString(16)).slice(-2); }).join(''); }
+  async function altcha() {
+    var sep = ENDPOINT.indexOf('?') < 0 ? '?' : '&';
+    var c = await (await fetch(ENDPOINT + sep + 'challenge=1')).json();
+    if (!c.challenge) throw new Error('altcha');
+    var enc = new TextEncoder();
+    for (var n = 0; n <= c.maxnumber; n++) {
+      if (hex(await crypto.subtle.digest('SHA-256', enc.encode(c.salt + n))) === c.challenge) {
+        return btoa(JSON.stringify({ algorithm: c.algorithm, challenge: c.challenge, number: n, salt: c.salt, signature: c.signature }));
+      }
+    }
+    throw new Error('altcha');
+  }
+  function prepara() { preT = Date.now(); pre = altcha().catch(function () { return ''; }); }
+  prepara();
+  function token() { if (!pre || Date.now() - preT > 480000) prepara(); return pre.then(function (v) { if (v) return v; prepara(); return pre; }); }
+  function lab(sel) { return sel && sel.value !== '' ? sel.options[sel.selectedIndex].text : ''; }
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!form.checkValidity()) { mostra(T.miss, false); return; }
+    btn.disabled = true; mostra(T.run, true, true);
+    token().then(function (tk) {
+      if (!tk) { mostra(T.ver, false); btn.disabled = false; return; }
+      var righe = [LAV ? (EN ? '[APPLICATION]' : '[CANDIDATURA]') : (EN ? '[INVESTOR]' : '[INVESTITORE]')];
+      if (form.ruolo) righe.push((EN ? 'Type: ' : 'Tipo: ') + lab(form.ruolo));
+      if (form.profilo) righe.push((EN ? 'Profile: ' : 'Profilo: ') + lab(form.profilo));
+      righe.push('Startup: ' + (lab(form.startup) || (EN ? 'not specified' : 'non indicata')));
+      if (form.link && form.link.value.trim()) righe.push('Link: ' + form.link.value.trim());
+      var d = new URLSearchParams(new FormData(form));
+      d.set('messaggio', righe.join('\n') + '\n\n' + form.messaggio.value);
+      ['startup', 'ruolo', 'profilo', 'link'].forEach(function (k) { d.delete(k); });
+      d.set('altcha', tk); d.set('t', String(t0)); d.set('tipo', 'contatto-web');
+      d.set('sito', location.hostname); d.set('pagina', location.pathname);
+      return fetch(ENDPOINT, { method: 'POST', body: d }).then(function (r) { return r.json(); }).then(function (j) {
+        if (j.status === 'ok') { form.reset(); mostra(T.ok, true); } else { mostra(T.ko, false); }
+        prepara(); btn.disabled = false; t0 = Date.now();
+      });
+    }).catch(function () { mostra(T.net, false); prepara(); btn.disabled = false; });
+  });
+})();
+</script>
+{%- else -%}
+<p class="hf-nota">{% if en %}The form will be available shortly.{% else %}Il modulo sarà disponibile a breve.{% endif %}</p>
+{%- endif -%}

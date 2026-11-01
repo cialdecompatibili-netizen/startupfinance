@@ -10,8 +10,12 @@
 main:
   - title: "Home"
     url: /
-  - title: "Servizi"
-    url: /servizi/
+  - title: "Startup"
+    url: /startup/
+  - title: "Investi"
+    url: /investi/
+  - title: "Lavora con noi"
+    url: /lavora-con-noi/
   - title: "Blog"
     url: /blog/
   - title: "Shop"

@@ -543,3 +543,41 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 {%- endif -%}
 {%- endif -%}
+
+<style>
+/* HUB startupfinance: pagine startup / investi / lavora-con-noi / come-validiamo. Niente bordi laterali colorati. */
+.hub-lead{font-size:1.1rem;margin:0 0 1.5rem}
+.hub-steps{list-style:none;margin:0 0 2rem;padding:0;display:grid;gap:.7rem;counter-reset:s}
+.hub-steps li{counter-increment:s;position:relative;padding:.8rem 1rem .8rem 3rem;background:rgba(0,0,0,.04);border-radius:10px}
+.hub-steps li:before{content:counter(s);position:absolute;left:1rem;top:.8rem;font-weight:700;color:var(--t-accent,#0e7490)}
+.hub-grid{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin:1.5rem 0}
+.hub-card{padding:1.2rem;border:1px solid rgba(0,0,0,.14);border-radius:12px;background:#fff}
+.hub-card h3{margin:.4rem 0 .2rem}
+.hub-card ul{margin:.3rem 0 .6rem 1.1rem}
+.hub-sett{opacity:.7;margin:0 0 .6rem;font-size:.9rem}
+.hub-h{font-weight:700;margin:.8rem 0 .1rem;font-size:.9rem}
+.hub-tag{display:inline-block;padding:.15rem .6rem;border-radius:99px;font-size:.78rem;font-weight:700;background:rgba(0,0,0,.08)}
+.hub-tag--investitori{background:var(--t-accent,#0e7490);color:#fff}
+.hub-tag--crescita{background:#166534;color:#fff}
+.hub-act{margin-top:.8rem}
+.hub-btn{display:inline-block;padding:.6rem 1.1rem;border-radius:8px;font-weight:700;text-decoration:none!important;border:2px solid var(--t-accent,#0e7490);margin:.3rem .4rem 0 0}
+.hub-btn--a{background:var(--t-accent,#0e7490);color:#fff!important}
+.hub-btn--o{background:transparent;color:var(--t-accent,#0e7490)!important}
+.hub-box{padding:1rem 1.2rem;border-radius:10px;background:rgba(0,0,0,.05);margin:1.5rem 0}
+.hub-vuoto{padding:1.4rem;border:1px dashed rgba(0,0,0,.3);border-radius:12px;margin:1.5rem 0;text-align:center}
+.hf-wrap{max-width:520px;margin:2rem auto}
+.hf-c{margin:0 0 1.1rem}
+.hf-form label{display:block;margin:0 0 .4rem;font-weight:600}
+.hf-form input[type=text],.hf-form input[type=email],.hf-form select,.hf-form textarea{display:block;width:100%;box-sizing:border-box;padding:.75rem .9rem;font:inherit;background:#fff;border:1px solid rgba(0,0,0,.2);border-radius:8px}
+.hf-form textarea{min-height:8rem;resize:vertical}
+.hf-form input:focus,.hf-form select:focus,.hf-form textarea:focus{outline:2px solid var(--t-accent,#0e7490);outline-offset:1px}
+.hf-btn{display:block;width:100%;margin-top:1.4rem;padding:1rem;border:0;border-radius:8px;background:var(--t-accent,#0e7490);color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer}
+.hf-btn:disabled{opacity:.65;cursor:progress}
+.hf-nota{margin:.8rem 0 0;font-size:.85rem;opacity:.7;text-align:center}
+#hf-esito{position:fixed;top:1rem;left:50%;transform:translate(-50%,-150%);z-index:99999;max-width:min(92vw,480px);padding:.9rem 1.3rem;border-radius:10px;background:var(--t-accent,#0e7490);color:#fff;font-weight:600;text-align:center;opacity:0;pointer-events:none;transition:transform .3s,opacity .3s}
+#hf-esito.hf-on{transform:translate(-50%,0);opacity:1}
+#hf-esito.hf-err{background:#b00020}
+/* Menu: Investi e Lavora con noi in evidenza (riconosciuti dal link) */
+.nv a[href$="/investi/"],.nv a[href$="/invest/"]{background:var(--t-accent,#0e7490)!important;color:#fff!important;border-radius:8px;padding:.4rem .9rem!important}
+.nv a[href$="/lavora-con-noi/"],.nv a[href$="/work-with-us/"]{border:2px solid var(--t-accent,#0e7490);border-radius:8px;padding:.3rem .8rem!important}
+</style>

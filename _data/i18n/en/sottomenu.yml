@@ -1,1 +1,14 @@
 # English dropdown menus (empty = none). Each key must be IDENTICAL to a title in navigation.yml of this folder.
+
+Startups:
+  - title: "All startups"
+    url: "/en/startups/"
+  - title: "How we validate"
+    url: "/en/how-we-validate/"
+  - title: "Pitch your idea"
+    url: "/en/work-with-us/?ruolo=idea"
+Blog:
+  - title: "All articles"
+    url: "/en/blog/"
+  - title: "Topics"
+    url: "/en/services/"

@@ -1,8 +1,12 @@
 main:
   - title: "Home"
     url: /en/
-  - title: "Services"
-    url: /en/services/
+  - title: "Startups"
+    url: /en/startups/
+  - title: "Invest"
+    url: /en/invest/
+  - title: "Work with us"
+    url: /en/work-with-us/
   - title: "Blog"
     url: /en/blog/
   - title: "Shop"
