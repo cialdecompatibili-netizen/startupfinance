@@ -17,6 +17,7 @@ seo_description: "Le startup che costruiamo: scopri lo stato, candidati o chiedi
 <span class="hub-tag">{{ s.stato }}</span>
 <p><strong>{% if false and s.nome_en %}{{ s.nome_en }}{% else %}{{ s.nome }}{% endif %}</strong></p>
 <p>{% if false and s.descrizione_en %}{{ s.descrizione_en }}{% else %}{{ s.descrizione }}{% endif %}</p>
+{% if s.link %}<p><a class="hub-btn hub-btn--l" href="{{ s.link }}">Leggi il progetto completo</a></p>{% endif %}
 <div class="hub-act"><a class="hub-btn hub-btn--a" href="{{ '/investi/?startup=' | append: s.id | relative_url }}">Investi</a> <a class="hub-btn hub-btn--o" href="{{ '/lavora-con-noi/?startup=' | append: s.id | relative_url }}">Candidati</a></div>
 </div>
 {% endfor %}

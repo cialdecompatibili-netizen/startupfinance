@@ -7,6 +7,8 @@ author_profile: false
 description: "Join a startup team, pitch your idea or write for the blog."
 lang: en
 locale: en
+tr: tradotto
+tr_hash: 6yor6i
 ---
 
 <p class="hub-lead">We look for talented people: developers, designers, marketers, founders. Join a startup in the project or bring your own idea.</p>

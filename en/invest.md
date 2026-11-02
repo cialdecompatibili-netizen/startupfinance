@@ -7,6 +7,8 @@ author_profile: false
 description: "Follow validated startups and ask for information: no promised returns."
 lang: en
 locale: en
+tr: tradotto
+tr_hash: 14tfc31
 ---
 
 <p class="hub-lead">Want to back early-stage startups? See which ones we are building, where they stand and how they were validated.</p>

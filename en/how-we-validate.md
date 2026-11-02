@@ -7,6 +7,8 @@ author_profile: false
 description: "The method we use to test an idea before building it."
 lang: en
 locale: en
+tr: tradotto
+tr_hash: 9qpskn
 ---
 
 <p class="hub-lead">The loop is simple: talent brings ideas, we validate them, investors follow only the ones that hold up.</p>

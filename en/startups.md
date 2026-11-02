@@ -7,6 +7,8 @@ author_profile: false
 description: "The startups we are building: see their status, apply or ask for information."
 lang: en
 locale: en
+tr: tradotto
+tr_hash: 8qvt38
 ---
 
 <p class="hub-lead">The ideas we are building, validating and taking to market. Each has a clear status and two paths: join the team or learn more as an investor.</p>
@@ -19,6 +21,7 @@ locale: en
 <span class="hub-tag">{{ s.stato }}</span>
 <p><strong>{% if true and s.nome_en %}{{ s.nome_en }}{% else %}{{ s.nome }}{% endif %}</strong></p>
 <p>{% if true and s.descrizione_en %}{{ s.descrizione_en }}{% else %}{{ s.descrizione }}{% endif %}</p>
+{% if s.link_en %}<p><a class="hub-btn hub-btn--l" href="{{ s.link_en }}">Read the full project</a></p>{% endif %}
 <div class="hub-act"><a class="hub-btn hub-btn--a" href="{{ '/en/invest/?startup=' | append: s.id | relative_url }}">Invest</a> <a class="hub-btn hub-btn--o" href="{{ '/en/work-with-us/?startup=' | append: s.id | relative_url }}">Apply</a></div>
 </div>
 {% endfor %}
