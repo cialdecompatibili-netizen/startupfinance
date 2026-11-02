@@ -11,9 +11,9 @@ seo_description: "Le startup che costruiamo: scopri lo stato, candidati o chiedi
 
 {% assign st = site.data.startup %}
 {% if st.size > 0 %}
-<div class="hub-grid">
+<div class="st-list">
 {% for s in st %}
-<div class="hub-card">
+<div class="st-row">
 <span class="hub-tag">{{ s.stato }}</span>
 <p><strong>{% if false and s.nome_en %}{{ s.nome_en }}{% else %}{{ s.nome }}{% endif %}</strong></p>
 <p>{% if false and s.descrizione_en %}{{ s.descrizione_en }}{% else %}{{ s.descrizione }}{% endif %}</p>

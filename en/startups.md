@@ -7,7 +7,7 @@ author_profile: false
 description: "The startups we are building: see their status, apply or ask for information."
 lang: en
 locale: en
-tr: tradotto
+tr: da_aggiornare
 tr_hash: ki82yx
 ---
 
@@ -15,9 +15,9 @@ tr_hash: ki82yx
 
 {% assign st = site.data.startup %}
 {% if st.size > 0 %}
-<div class="hub-grid">
+<div class="st-list">
 {% for s in st %}
-<div class="hub-card">
+<div class="st-row">
 <span class="hub-tag">{{ s.stato }}</span>
 <p><strong>{% if true and s.nome_en %}{{ s.nome_en }}{% else %}{{ s.nome }}{% endif %}</strong></p>
 <p>{% if true and s.descrizione_en %}{{ s.descrizione_en }}{% else %}{{ s.descrizione }}{% endif %}</p>
