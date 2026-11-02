@@ -28,5 +28,15 @@
     "descrizione_en": "Services for real things: bookable parking, drones for inspections and surveys, QR or NFC tagged objects. Automatic payments and dated proofs on an immutable registry. No live service: we are studying the market and the rules.",
     "link": "https://cialdecompatibili-netizen.github.io/startupfinance/startup/rete-fisica/",
     "link_en": "https://cialdecompatibili-netizen.github.io/startupfinance/en/startup/physical-network/"
+  },
+  {
+    "id": "rete-blockchain",
+    "nome": "Rete blockchain",
+    "nome_en": "Blockchain network",
+    "stato": "Idea in studio",
+    "descrizione": "Una rete blockchain per pagamenti e startup crypto, ispirata a TRON ma costruita su software con licenze permissive. Nessuna rete attiva e nessun token in vendita: stiamo valutando tecnologia, licenze e regole.",
+    "descrizione_en": "A blockchain network for payments and crypto startups, inspired by TRON but built on software with permissive licenses. No live network and no token for sale: we are evaluating technology, licenses and rules.",
+    "link": "https://cialdecompatibili-netizen.github.io/startupfinance/startup/rete-blockchain/",
+    "link_en": "https://cialdecompatibili-netizen.github.io/startupfinance/en/startup/blockchain-network/"
   }
 ]
