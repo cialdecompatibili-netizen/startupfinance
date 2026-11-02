@@ -8,5 +8,15 @@
     "descrizione_en": "Decentralized digital currency with privacy built in: ring signatures, one-time addresses and hidden amounts. No live network and no token for sale: we are evaluating technology, rules and security.",
     "link": "https://cialdecompatibili-netizen.github.io/decentralizza/progetti/moneta-privata/",
     "link_en": "https://cialdecompatibili-netizen.github.io/decentralizza/en/projects/private-coin/"
+  },
+  {
+    "id": "registro-immutabile",
+    "nome": "Registro immutabile",
+    "nome_en": "Immutable registry",
+    "stato": "Idea in studio",
+    "descrizione": "Certificazione, tracciabilità e notarizzazione su registro decentralizzato: documenti con data certa, prove di paternità, diplomi, filiere, audit e contratti automatici. Nessun servizio attivo: stiamo studiando mercato e regole.",
+    "descrizione_en": "Certification, traceability and notarization on a decentralized registry: documents with a certain date, proof of authorship, diplomas, supply chains, audits and automatic contracts. No live service: we are studying the market and the rules.",
+    "link": "https://cialdecompatibili-netizen.github.io/startupfinance/startup/registro-immutabile/",
+    "link_en": "https://cialdecompatibili-netizen.github.io/startupfinance/en/startup/immutable-registry/"
   }
 ]
