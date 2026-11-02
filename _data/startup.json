@@ -18,5 +18,15 @@
     "descrizione_en": "Certification, traceability and notarization on a decentralized registry: documents with a certain date, proof of authorship, diplomas, supply chains, audits and automatic contracts. No live service: we are studying the market and the rules.",
     "link": "https://cialdecompatibili-netizen.github.io/startupfinance/startup/registro-immutabile/",
     "link_en": "https://cialdecompatibili-netizen.github.io/startupfinance/en/startup/immutable-registry/"
+  },
+  {
+    "id": "rete-fisica",
+    "nome": "Rete fisica",
+    "nome_en": "Physical network",
+    "stato": "Idea in studio",
+    "descrizione": "Servizi per cose reali: parcheggi prenotabili, droni per ispezioni e rilievi, oggetti con QR o NFC. Pagamenti automatici e prove con data certa su registro immutabile. Nessun servizio attivo: stiamo studiando mercato e regole.",
+    "descrizione_en": "Services for real things: bookable parking, drones for inspections and surveys, QR or NFC tagged objects. Automatic payments and dated proofs on an immutable registry. No live service: we are studying the market and the rules.",
+    "link": "https://cialdecompatibili-netizen.github.io/startupfinance/startup/rete-fisica/",
+    "link_en": "https://cialdecompatibili-netizen.github.io/startupfinance/en/startup/physical-network/"
   }
 ]
